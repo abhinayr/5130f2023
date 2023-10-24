@@ -1,33 +1,9 @@
-## Project Name: TAG (Personalized Car Finance Advisor)
-# Author: Abhinay Mangasamudram, Sai Tinendra Kandula, Gireeshwar Gangarapu
-Date: 10/16/2023
+## Paper Title: Smart car financing - a personalized approach
 
-# TAG (Personalized Car Finance Advisor)
+# Author: Abhinay Mangasamudram
+Date: 10/23/2023
 
-TAG is a user-friendly platform designed to simplify the decision-making process of whether to buy or lease a car. Making the right choice between these two options can have a significant financial impact, and we're here to help you navigate the complexities.
+# Smart car financing - a personalized approach
 
-## Table of Contents
+The decision to buy or lease a car is a significant financial choice for consumers. This paper outlines the development and implementation of a project aimed at assisting consumers in making this decision. We describe the problem of choosing between buying and leasing, present a solution approach, detail the technical aspects of information and guidance system, and discuss the results of the project.
 
-1. [Installation](#installation)
-2. [Usage](#usage)
-3. [Features](#features)
-
-## Installation
-
-TAG is a web-based platform, so there's no installation required. Simply visit our website ['will insert URL'] to get started.
-
-## Usage
-
-1. **Sign Up or Log In:** Create an account or log in if you're an existing user. Your account allows us to provide personalized advice.
-
-2. **Answer a Few Questions:** We'll ask you a series of questions about your financial status, preferences, and your intended vehicle. This information is used to tailor our recommendations to your unique circumstances.
-
-3. **Get Personalized Guidance:** After answering the questions, we'll provide a clear comparison of leasing and buying options, considering your financial situation. You'll see the long-term financial impact of each choice.
-
-## Features
-
-- **Personalized Guidance:** Tailored recommendations based on your financial status.
-- **Comparison Tool:** Clear side-by-side comparisons of leasing and buying options.
-
-
-For questions, feedback, or support, please contact [mrabhinay214@gmail.com].
