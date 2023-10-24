@@ -1,5 +1,5 @@
 ## Project Name: TAG (Personalized Car Finance Advisor)
-# Author: Sai Tinendra Kandula, Abhinay Mangasamudram, Gireeshwar Gangarapu
+# Author: Abhinay Mangasamudram, Sai Tinendra Kandula, Gireeshwar Gangarapu
 Date: 10/16/2023
 
 # TAG (Personalized Car Finance Advisor)
@@ -30,4 +30,4 @@ TAG is a web-based platform, so there's no installation required. Simply visit o
 - **Comparison Tool:** Clear side-by-side comparisons of leasing and buying options.
 
 
-For questions, feedback, or support, please contact [tinendra.kumar@gmail.com].
+For questions, feedback, or support, please contact [mrabhinay214@gmail.com].
