@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 400px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .form-group {
+            margin: 20px 0;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button {
+            background-color: #1877f2;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form action="process_signup.php" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>My current location</label>
+                <input type="text" name="current_location" required>
+            </div>
+            <div class="form-group">
+                <label>I am from</label>
+                <input type="text" name="from" required>
+            </div>
+            <div class="form-group">
+                <label>I’d like to be in</label>
+                <input type="text" name="like_to_be_in">
+            </div>
+            <div class="form-group">
+                <label>My family is from</label>
+                <input type="text" name="family_from">
+            </div>
+            <div class="form-group">
+                <label>More facts (do not have to be real)</label>
+                <input type="text" name="more_facts">
+            </div>
+            <div class="form-group">
+                <label>My place of birth</label>
+                <input type="text" name="place_of_birth">
+            </div>
+            <div class="form-group">
+                <label>Where I live now</label>
+                <input type="text" name="live_now">
+            </div>
+            <div class="form-group">
+                <label>Where I’d like to live</label>
+                <input type="text" name="like_to_live">
+            </div>
+            <div class="form-group">
+                <label>Where my "significant other" was born/grew up etc.</label>
+                <input type="text" name="significant_other_location">
+            </div>
+            <div class="form-group">
+                <label>An investment portfolio (doesn’t have to be real)</label>
+                <input type="text" name="investment_portfolio">
+            </div>
+            <div class="form-group">
+                <label>My picture</label>
+                <input type="file" name="profile_picture" accept="image/*" required>
+            </div>
+            <div class="form-group">
+                <label>My resume/CV</label>
+                <input type="file" name="resume" accept=".pdf,.doc,.docx">
+            </div>
+            <button type="submit">Sign Up</button>
+        
+        <form action="process_signup.php" method="post" enctype="multipart/form-data">
+
+        
+        </form>
+    </div>
+</body>
+</html>
