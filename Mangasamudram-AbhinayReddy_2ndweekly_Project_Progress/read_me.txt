@@ -1,0 +1,1 @@
+This week I have created html page for car details with layout (accord_details.html), a user home page(user_details.html), a page to edit the user details(edit_details.html) and gathered information (Make, Model, Year, Monthly Price, Description, Fuel Type, Transmission, MPG, Price per Day) about cars used to the car_database(car_details.xlsx) of project.
