@@ -1,1 +1,2 @@
+created firebase db for storing car details. Added a Function to compare cars available(not final because did not connect it to firebase) and added questions in FAQ page, created pages for searching cars and signing up, search.html(for searching the cars), search_details.html( for displaying search results), signin.html(for signing in and accessing user_details.html which was added last week) and signup.html(for creating an account)
 
