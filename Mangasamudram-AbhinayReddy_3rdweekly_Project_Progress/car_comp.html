@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Comparison</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .car-comparison {
+            margin-top: 20px;
+        }
+
+        .dropdown-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .car-dropdown {
+            width: 45%;
+        }
+
+        .compare-button {
+            width: 10%;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .comparison-details {
+            border-top: 1px solid #ccc;
+            margin-top: 20px;
+            padding-top: 20px;
+        }
+
+        .comparison-details h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Car Comparison</h1>
+    </header>
+
+    <div class="container">
+        <div class="car-comparison">
+            <div class="dropdown-container">
+                <select class="car-dropdown" id="car1">
+                    <option value="">Select Car 1</option>
+                    <option value="car1">Car Model 1</option>
+                    <option value="car2">Car Model 2</option>
+                    <option value="car3">Car Model 3</option>
+                    <option value="car4">Car Model 4</option>
+                </select>
+
+                <select class="car-dropdown" id="car2">
+                    <option value="">Select Car 2</option>
+                    <option value="car1">Car Model 1</option>
+                    <option value="car2">Car Model 2</option>
+                    <option value="car3">Car Model 3</option>
+                    <option value="car4">Car Model 4</option>
+                </select>
+
+                <button class="compare-button" onclick="compareCars()">Compare</button>
+            </div>
+
+            <div class="comparison-details" id="comparisonDetails">
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function compareCars() {
+            const car1 = document.getElementById("car1").value;
+            const car2 = document.getElementById("car2").value;
+
+            if (car1 && car2) {
+                const car1Details = getCarDetails(car1);
+                const car2Details = getCarDetails(car2);
+
+                displayComparison(car1Details, car2Details);
+            } else {
+                alert("Please select two cars for comparison.");
+            }
+        }
+
+        function getCarDetails(carId) {
+            return {
+                make: "Car Make",
+                model: "Car Model",
+                year: 2023,
+                engine: "2.0L 4-cylinder",
+                transmission: "Automatic",
+                fuelType: "Gasoline",
+                mpg: "30 city / 38 highway",
+            };
+        }
+
+        function displayComparison(car1Details, car2Details) {
+            const comparisonDetails = document.getElementById("comparisonDetails");
+
+            comparisonDetails.innerHTML = "";
+
+            const table = document.createElement("table");
+            table.classList.add("comparison-table");
+
+            const thead = document.createElement("thead");
+            const headerRow = document.createElement("tr");
+
+            const th1 = document.createElement("th");
+            th1.textContent = "Car 1";
+            headerRow.appendChild(th1);
+
+            const th2 = document.createElement("th");
+            th2.textContent = "Car 2";
+            headerRow.appendChild(th2);
+
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            const tbody = document.createElement("tbody");
+
+            for (const key in car1Details) {
+                if (car1Details.hasOwnProperty(key)) {
+                    const tr = document.createElement("tr");
+
+                    const td1 = document.createElement("td");
+                    td1.textContent = car1Details[key];
+                    tr.appendChild(td1);
+
+                    const td2 = document.createElement("td");
+                    td2.textContent = car2Details[key];
+                    tr.appendChild(td2);
+
+                    tbody.appendChild(tr);
+                }
+            }
+
+            table.appendChild(tbody);
+            comparisonDetails.appendChild(table);
+        }
+    </script>
+</body>
+</html>
