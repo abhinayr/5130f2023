@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Information Form</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-auth-compat.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="css/new.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/radiobuttons.css">
+</head>
+<style>
+    body{
+        background-image: url("images/car3.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+<body>
+<div id="app">
+    <h2 class="tracking-in-contract-bck">USER SIGN IN/SIGN UP</h2>
+    <div v-if="!authUser">
+        <div v-if="showRegisterForm">
+            <form class="form" @submit.prevent="submitForm">
+                <p class="title">Register</p>
+                <p class="message">Signup now and get full access</p>
+                <label>
+                    <span>Email</span>
+                    <input id="email" class="input" type="email" required v-model="formData.email">
+                </label>
+                <label>
+                    <span>Password</span>
+                    <input id="password" class="input" type="password" required v-model="formData.password">
+                </label>
+                <button class="submit">Submit</button>
+                <p>Already have an account? </p>
+                <button @click="showRegisterForm = false">Sign In</button>
+            </form>
+        </div>
+        <div v-else>
+            <form class="form" @submit.prevent="signIn">
+                <p class="title">Login</p>
+                <p class="message">Login to your account</p>
+                <label>
+                    <span>Email</span>
+                    <input class="input" type="email" required v-model="formData.email">
+                </label>
+                <label>
+                    <span>Password</span>
+                    <input class="input" type="password" required v-model="formData.password">
+                </label>
+                <button class="submit">Submit</button>
+                <p>Don't have an account? </p>
+                <button @click="showRegisterForm = true">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <div v-else>
+        <div v-if="authUser.emailVerified">
+            <p class="message">You are logged in as {{authUser.email}}</p>
+            <button class="button" @click="signOut">Sign out</button>
+        </div>
+        <div v-else>
+            <p class="message">Please verify your email to proceed.</p>
+            <p class="message">Verification link sent to email address</p>
+            <button class="button" @click="sendVerificationEmail">Resend Verification Email</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const config = {
+        apiKey: "AIzaSyAMX4bZwT4JpwnVK28hNfWOukcjalXZzUA",
+        authDomain: "iws1-4be46.firebaseapp.com",
+        databaseURL: "https://iws1-4be46-default-rtdb.firebaseio.com",
+        projectId: "iws1-4be46",
+        storageBucket: "iws1-4be46.appspot.com",
+        messagingSenderId: "245789471783",
+        appId: "1:245789471783:web:a180927220201b036aca02"
+    };
+
+    firebase.initializeApp(config);
+
+    new Vue({
+        el: '#app',
+        data: {
+            authUser: null,
+            formData: {
+                email: '',
+                password: '',
+            },
+            showRegisterForm: true,
+            lastLogin: '',
+        },
+        methods: {
+            submitForm: function () {
+                return firebase.auth().createUserWithEmailAndPassword(this.formData.email, this.formData.password)
+                    .then(() => {
+                        this.sendVerificationEmail();
+                    })
+                    .catch((error) => {
+                        console.error('Registration error:', error);
+                    });
+            },
+            signIn: function () {
+                return firebase.auth().signInWithEmailAndPassword(this.formData.email, this.formData.password);
+            },
+            signOut: function () {
+                firebase.auth().signOut().then(() => {
+                    this.authUser = null;
+                }).catch((error) => {
+                    console.error('Sign-out error:', error);
+                });
+            },
+            sendVerificationEmail: function () {
+                const user = firebase.auth().currentUser;
+
+                user.sendEmailVerification().then(() => {
+                    console.log('Verification email sent');
+                }).catch((error) => {
+                    console.error('Error sending verification email:', error);
+                });
+            },
+        },
+        created: function () {
+            firebase.auth().onAuthStateChanged((user) => {
+                this.authUser = user;
+            }, (error) => {
+                console.log(error);
+            });
+        }
+    });
+</script>
+</body>
+</html>
